@@ -189,6 +189,8 @@ body {
   margin: 0 auto;
   max-width: @maxWidthWebsite;
 
+  //at container level
+
   h1 {
     font-size: @extraLarge;
     padding: @small;
@@ -199,10 +201,21 @@ body {
     padding: @small;
   }
 
+
+  // mixins
+
+  .display-flex(@direction) {
+	display: flex;
+	flex-direction: @direction;
+  }
+
+
+  // nested elements
+
   header {
     margin: @small;
     nav {
-      display: flex;
+		.display-flex(row)
       justify-content: flex-end;
 
       a {
@@ -214,8 +227,7 @@ body {
   }
 
   .top {
-    display: flex;
-    flex-direction: column;
+    .display-flex(column)
     align-items: center;
     padding: @extraLarge;
     padding-bottom: 0;
@@ -255,8 +267,7 @@ body {
   }
 
   .work-history {
-    display: flex;
-    flex-direction: column;
+    .display-flex(column)
 
     table {
       th {
@@ -269,14 +280,11 @@ body {
       :first-child {
         width: 10%;
       }
-      :nth-child(2) {
+      :nth-child(2), :nth-child(4) {
         width: 20%;
       }
       :nth-child(3) {
         width: 40%;
-      }
-      :nth-child(4) {
-        width: 20%;
       }
 
       th,
@@ -297,7 +305,7 @@ body {
   }
 
   footer {
-    display: flex;
+    .display-flex(row)
     justify-content: space-evenly;
     margin: @large auto;
     padding: @medium;
