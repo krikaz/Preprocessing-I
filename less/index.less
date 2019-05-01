@@ -149,13 +149,6 @@ body {
 @tabletFontSize: 125%;
 @mobileFontSize: 150%;
 
-/* // font size
-@extraLargeFont: 3em;
-@largeFont: 2em;
-@mediumFont: 1.5em;
-@smallFont: .5em;
-@extraSmallFont: .25em; */
-
 // font size
 @extraLarge: 3em;
 @large: 2em;
@@ -173,9 +166,12 @@ body {
 @lightGrey: #b9b6b6;
 @borderColor: #be9090;
 @lightFontColor: #ecece1;
-@tableRowLightColor: #87d4e2;
-@tableRowDarkColor: #4b48cc;
+@tableRowLightColor: #b0f2fd;
+@tableRowDarkColor: #8e8df1;
 @black: #02011a;
+
+// borders
+@funkyBorder: @extraExtraSmall solid @borderColor;
 
 // general styles
 
@@ -192,6 +188,16 @@ body {
 .container {
   margin: 0 auto;
   max-width: @maxWidthWebsite;
+
+  h1 {
+    font-size: @extraLarge;
+    padding: @small;
+  }
+
+  h2 {
+    font-size: @large;
+    padding: @small;
+  }
 
   header {
     margin: @small;
@@ -212,27 +218,17 @@ body {
     flex-direction: column;
     align-items: center;
     padding: @extraLarge;
+    padding-bottom: 0;
     background-color: @lightGrey;
 
     img {
       max-width: 100%;
-    }
-
-    h1 {
-      font-size: @extraLarge;
-      padding: @small;
-      padding-bottom: 0;
     }
   }
 
   .middle {
     display: flex;
     margin: @medium auto;
-
-    h2 {
-      font-size: @large;
-      padding: @small;
-    }
 
     .intro {
       width: 50%;
@@ -247,14 +243,55 @@ body {
 
       ul {
         li {
-			border: @extraExtraSmall solid @borderColor;
-			border-top: none;
-			padding: @small;
-			
-		}
-		:first-child {
-			border-top: @extraExtraSmall solid @borderColor;
-		}
+          border: @funkyBorder;
+          border-top: none;
+          padding: @small;
+        }
+        :first-child {
+          border-top: @funkyBorder;
+        }
+      }
+    }
+  }
+
+  .work-history {
+    display: flex;
+    flex-direction: column;
+
+    table {
+      th {
+        font-weight: bold;
+        text-align: left;
+      }
+
+      tr {
+      }
+      :first-child {
+        width: 10%;
+      }
+      :nth-child(2) {
+        width: 20%;
+      }
+      :nth-child(3) {
+        width: 40%;
+      }
+      :nth-child(4) {
+        width: 20%;
+      }
+
+      th,
+      td {
+        padding: @small;
+        border-top: @funkyBorder;
+      }
+
+      tbody {
+        tr:nth-child(2n + 1) {
+          background-color: @tableRowDarkColor;
+        }
+        tr:nth-child(2n) {
+          background-color: @tableRowLightColor;
+        }
       }
     }
   }

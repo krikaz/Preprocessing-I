@@ -135,12 +135,6 @@ body {
   height: 100%;
 }
 /* My code */
-/* // font size
-@extraLargeFont: 3em;
-@largeFont: 2em;
-@mediumFont: 1.5em;
-@smallFont: .5em;
-@extraSmallFont: .25em; */
 :root {
   font-size: 100%;
 }
@@ -157,6 +151,14 @@ body {
 .container {
   margin: 0 auto;
   max-width: 800px;
+}
+.container h1 {
+  font-size: 3em;
+  padding: 0.5em;
+}
+.container h2 {
+  font-size: 2em;
+  padding: 0.5em;
 }
 .container header {
   margin: 0.5em;
@@ -175,23 +177,15 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 3em;
+  padding-bottom: 0;
   background-color: #b9b6b6;
 }
 .container .top img {
   max-width: 100%;
 }
-.container .top h1 {
-  font-size: 3em;
-  padding: 0.5em;
-  padding-bottom: 0;
-}
 .container .middle {
   display: flex;
   margin: 1.5em auto;
-}
-.container .middle h2 {
-  font-size: 2em;
-  padding: 0.5em;
 }
 .container .middle .intro {
   width: 50%;
@@ -209,4 +203,35 @@ body {
 }
 .container .middle .skills ul :first-child {
   border-top: 0.1em solid #be9090;
+}
+.container .work-history {
+  display: flex;
+  flex-direction: column;
+}
+.container .work-history table th {
+  font-weight: bold;
+  text-align: left;
+}
+.container .work-history table :first-child {
+  width: 10%;
+}
+.container .work-history table :nth-child(2) {
+  width: 20%;
+}
+.container .work-history table :nth-child(3) {
+  width: 40%;
+}
+.container .work-history table :nth-child(4) {
+  width: 20%;
+}
+.container .work-history table th,
+.container .work-history table td {
+  padding: 0.5em;
+  border-top: 0.1em solid #be9090;
+}
+.container .work-history table tbody tr:nth-child(2n + 1) {
+  background-color: #8e8df1;
+}
+.container .work-history table tbody tr:nth-child(2n) {
+  background-color: #b0f2fd;
 }
