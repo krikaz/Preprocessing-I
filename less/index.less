@@ -142,14 +142,14 @@ body {
 /* My code */
 
 // max width for website
-@maxWidthWebsite: 800px;
+@maxWidthWebsite: 900px;
 
 // base font sizes
 @defaultFontSize: 100%;
 @tabletFontSize: 125%;
 @mobileFontSize: 150%;
 
-// font size
+// sizes
 @extraLarge: 3em;
 @large: 2em;
 @medium: 1.5em;
@@ -204,9 +204,11 @@ body {
 
   // mixins
 
-  .display-flex(@direction) {
+  .display-flex(@direction, @justcon, @alitem) {
     display: flex;
     flex-direction: @direction;
+    justify-content: @justcon;
+    align-items: @alitem;
   }
 
   // nested elements
@@ -214,25 +216,22 @@ body {
   header {
     margin: @small;
     nav {
-      .display-flex(row);
-      justify-content: flex-end;
+      .display-flex(row, flex-end, normal);
 
       @media (max-width: @mobileBreakpoint) {
-        flex-direction: column;
+        .display-flex(column, normal, center);
       }
 
       a {
         padding: @small;
         text-decoration: none;
         color: @black;
-        
       }
     }
   }
 
   .top {
-    .display-flex(column);
-    align-items: center;
+    .display-flex(column, normal, center);
     padding: @extraLarge;
     padding-bottom: 0;
     background-color: @lightGrey;
@@ -243,12 +242,18 @@ body {
   }
 
   .middle {
-    display: flex;
+    .display-flex(row, normal, normal);
     margin: @medium auto;
+
+    @media (max-width: @mobileBreakpoint) {
+      flex-direction: column;
+    }
 
     .intro {
       width: 50%;
-
+      @media (max-width: @mobileBreakpoint) {
+        width: 100%;
+      }
       p {
         padding: @extraSmall;
       }
@@ -256,6 +261,9 @@ body {
 
     .skills {
       width: 50%;
+      @media (max-width: @mobileBreakpoint) {
+        width: 100%;
+      }
 
       ul {
         li {
@@ -271,7 +279,7 @@ body {
   }
 
   .work-history {
-    .display-flex(column);
+    .display-flex(column, normal, normal);
     table {
       th {
         font-weight: bold;
@@ -309,11 +317,17 @@ body {
   }
 
   footer {
-    .display-flex(row);
-    justify-content: space-evenly;
+    .display-flex(row, space-evenly, normal);
+    @media (max-width: @mobileBreakpoint) {
+      .display-flex(column, space-evenly, center);
+    }
     margin: @large auto;
     padding: @medium;
     background-color: @darkGrey;
     color: @lightFontColor;
+
+    p {
+      padding: @small;
+    }
   }
 }
