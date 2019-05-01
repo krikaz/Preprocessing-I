@@ -119,7 +119,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -169,4 +169,19 @@ body {
   padding: 0.5em;
   color: #02011a;
   text-decoration: none;
+}
+.container .top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  background-color: #b9b6b6;
+}
+.container .top img {
+  max-width: 100%;
+}
+.container .top h1 {
+  font-size: 3em;
+  padding: 0.5em;
+  padding-bottom: 0;
 }
