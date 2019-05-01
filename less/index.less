@@ -215,21 +215,22 @@ body {
     nav {
       .display-flex(row);
       justify-content: flex-end;
-    }
-
-    a {
-      padding: @small;
-      color: @black;
-      text-decoration: none;
 
       @media (max-width: @mobileBreakpoint) {
+        flex-direction: column;
+      }
+
+      a {
+        padding: @small;
         color: yellow;
+        text-decoration: none;
       }
     }
   }
 
   .top {
-    .display-flex(column) align-items: center;
+    .display-flex(column);
+    align-items: center;
     padding: @extraLarge;
     padding-bottom: 0;
     background-color: @lightGrey;
@@ -268,7 +269,8 @@ body {
   }
 
   .work-history {
-    .display-flex(column) table {
+    .display-flex(column);
+    table {
       th {
         font-weight: bold;
         text-align: left;
@@ -305,7 +307,8 @@ body {
   }
 
   footer {
-    .display-flex(row) justify-content: space-evenly;
+    .display-flex(row);
+    justify-content: space-evenly;
     margin: @large auto;
     padding: @medium;
     background-color: @darkGrey;
