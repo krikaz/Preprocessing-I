@@ -58,3 +58,71 @@ html, body {
 }
 
 
+/* My code */
+
+// max width for website
+@maxWidthWebsite: 800px;
+
+// base font sizes
+@defaultFontSize: 100%;
+@tabletFontSize: 125%;
+@mobileFontSize: 150%;
+
+/* // font size
+@extraLargeFont: 3em;
+@largeFont: 2em;
+@mediumFont: 1.5em;
+@smallFont: .5em;
+@extraSmallFont: .25em; */
+
+// font size
+@extraLarge: 3em;
+@large: 2em;
+@medium: 1.5em;
+@small: .5em;
+@extraSmall: .25em;
+
+// breakpoints
+@mobileBreakpoint: 600px;
+@tabletBreakpoint: 900px;
+
+// colors
+@darkGrey: #353333;
+@lightGrey: #999999;
+@borderColor: #be9090;
+@lightFontColor: #ecece1;
+@tableRowLightColor: #87d4e2;
+@tableRowDarkColor: #4b48cc;
+@black: #02011a;
+
+
+// general styles
+
+:root {
+	font-size: @defaultFontSize;
+	@media(max-width: @tabletBreakpoint) {
+		font-size: @tabletFontSize;
+	  }
+	@media(max-width: @mobileBreakpoint) {
+	  font-size: @mobileFontSize;
+	}
+}
+
+.container {
+	margin: 0 auto;
+	max-width: @maxWidthWebsite;
+
+	header {
+		margin: @small;
+		nav {
+			display: flex;
+			justify-content: flex-end;
+
+			a {
+				padding: @small;
+				color: @black;
+				text-decoration: none;
+			}
+		}
+	}
+}

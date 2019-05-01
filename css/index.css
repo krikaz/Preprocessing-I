@@ -134,3 +134,39 @@ html,
 body {
   height: 100%;
 }
+/* My code */
+/* // font size
+@extraLargeFont: 3em;
+@largeFont: 2em;
+@mediumFont: 1.5em;
+@smallFont: .5em;
+@extraSmallFont: .25em; */
+:root {
+  font-size: 100%;
+}
+@media (max-width: 900px) {
+  :root {
+    font-size: 125%;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    font-size: 150%;
+  }
+}
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+.container header {
+  margin: 0.5em;
+}
+.container header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+.container header nav a {
+  padding: 0.5em;
+  color: #02011a;
+  text-decoration: none;
+}
