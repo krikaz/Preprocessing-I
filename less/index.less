@@ -201,34 +201,35 @@ body {
     padding: @small;
   }
 
-
   // mixins
 
   .display-flex(@direction) {
-	display: flex;
-	flex-direction: @direction;
+    display: flex;
+    flex-direction: @direction;
   }
-
 
   // nested elements
 
   header {
     margin: @small;
     nav {
-		.display-flex(row)
+      .display-flex(row);
       justify-content: flex-end;
+    }
 
-      a {
-        padding: @small;
-        color: @black;
-        text-decoration: none;
+    a {
+      padding: @small;
+      color: @black;
+      text-decoration: none;
+
+      @media (max-width: @mobileBreakpoint) {
+        color: yellow;
       }
     }
   }
 
   .top {
-    .display-flex(column)
-    align-items: center;
+    .display-flex(column) align-items: center;
     padding: @extraLarge;
     padding-bottom: 0;
     background-color: @lightGrey;
@@ -267,24 +268,23 @@ body {
   }
 
   .work-history {
-    .display-flex(column)
-
-    table {
+    .display-flex(column) table {
       th {
         font-weight: bold;
         text-align: left;
       }
 
       tr {
-      }
-      :first-child {
-        width: 10%;
-      }
-      :nth-child(2), :nth-child(4) {
-        width: 20%;
-      }
-      :nth-child(3) {
-        width: 40%;
+        :first-child {
+          width: 10%;
+        }
+        :nth-child(2),
+        :nth-child(4) {
+          width: 20%;
+        }
+        :nth-child(3) {
+          width: 40%;
+        }
       }
 
       th,
@@ -305,8 +305,7 @@ body {
   }
 
   footer {
-    .display-flex(row)
-    justify-content: space-evenly;
+    .display-flex(row) justify-content: space-evenly;
     margin: @large auto;
     padding: @medium;
     background-color: @darkGrey;
