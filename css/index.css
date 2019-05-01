@@ -185,3 +185,28 @@ body {
   padding: 0.5em;
   padding-bottom: 0;
 }
+.container .middle {
+  display: flex;
+  margin: 1.5em auto;
+}
+.container .middle h2 {
+  font-size: 2em;
+  padding: 0.5em;
+}
+.container .middle .intro {
+  width: 50%;
+}
+.container .middle .intro p {
+  padding: 0.25em;
+}
+.container .middle .skills {
+  width: 50%;
+}
+.container .middle .skills ul li {
+  border: 0.1em solid #be9090;
+  border-top: none;
+  padding: 0.5em;
+}
+.container .middle .skills ul :first-child {
+  border-top: 0.1em solid #be9090;
+}

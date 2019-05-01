@@ -162,6 +162,7 @@ body {
 @medium: 1.5em;
 @small: 0.5em;
 @extraSmall: 0.25em;
+@extraExtraSmall: 0.1em;
 
 // breakpoints
 @mobileBreakpoint: 600px;
@@ -207,20 +208,54 @@ body {
   }
 
   .top {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  padding:@extraLarge;
-	  background-color: @lightGrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: @extraLarge;
+    background-color: @lightGrey;
 
-	  img {
-		max-width: 100%;
-	  }
+    img {
+      max-width: 100%;
+    }
 
-	  h1 {
-		  font-size: @extraLarge;
-		  padding: @small;
-		  padding-bottom: 0;
-	  }
+    h1 {
+      font-size: @extraLarge;
+      padding: @small;
+      padding-bottom: 0;
+    }
+  }
+
+  .middle {
+    display: flex;
+    margin: @medium auto;
+
+    h2 {
+      font-size: @large;
+      padding: @small;
+    }
+
+    .intro {
+      width: 50%;
+
+      p {
+        padding: @extraSmall;
+      }
+    }
+
+    .skills {
+      width: 50%;
+
+      ul {
+        li {
+			border: @extraExtraSmall solid @borderColor;
+			border-top: none;
+			padding: @small;
+			
+		}
+		:first-child {
+			border-top: @extraExtraSmall solid @borderColor;
+		}
+      }
+    }
   }
 }
