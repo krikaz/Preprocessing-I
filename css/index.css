@@ -235,3 +235,11 @@ body {
 .container .work-history table tbody tr:nth-child(2n) {
   background-color: #b0f2fd;
 }
+.container footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2em auto;
+  padding: 1.5em;
+  background-color: #5a5858;
+  color: #ecece1;
+}
