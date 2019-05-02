@@ -4,56 +4,330 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
+/* My code */
+
+// max width for website
+@maxWidthWebsite: 900px;
+
+// base font sizes
+@defaultFontSize: 100%;
+@tabletFontSize: 125%;
+@mobileFontSize: 150%;
+
+// sizes
+@extraLarge: 3em;
+@large: 2em;
+@medium: 1.5em;
+@small: 0.5em;
+@extraSmall: 0.25em;
+@extraExtraSmall: 0.1em;
+
+// breakpoints
+@mobileBreakpoint: 600px;
+@tabletBreakpoint: 900px;
+
+// colors
+@darkGrey: #5a5858;
+@lightGrey: #b9b6b6;
+@borderColor: #be9090;
+@lightFontColor: #ecece1;
+@tableRowLightColor: #b0f2fd;
+@tableRowDarkColor: #8e8df1;
+@black: #02011a;
+
+// borders
+@funkyBorder: @extraExtraSmall solid @borderColor;
+
+// general styles
+
+:root {
+  font-size: @defaultFontSize;
+  @media (max-width: @tabletBreakpoint) {
+    font-size: @tabletFontSize;
+  }
+  @media (max-width: @mobileBreakpoint) {
+    font-size: @mobileFontSize;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: @maxWidthWebsite;
+
+  // at container level
+
+  h1 {
+    font-size: @extraLarge;
+    padding: @small;
+    color: @darkGrey;
+  }
+
+  h2 {
+    font-size: @large;
+    padding: @small;
+  }
+
+  // mixins
+
+  .display-flex(@direction, @justcon, @alitem) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justcon;
+    align-items: @alitem;
+  }
+
+  // nested elements
+
+  header {
+    margin: @small;
+    nav {
+      .display-flex(row, flex-end, normal);
+
+      @media (max-width: @mobileBreakpoint) {
+        .display-flex(column, normal, center);
+      }
+
+      a {
+        padding: @small;
+        text-decoration: none;
+        color: @black;
+      }
+    }
+  }
+
+  .top {
+    .display-flex(column, normal, center);
+    padding: @extraLarge;
+    padding-bottom: 0;
+    background-color: @lightGrey;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .middle {
+    .display-flex(row, normal, normal);
+    margin: @medium auto;
+
+    @media (max-width: @mobileBreakpoint) {
+      flex-direction: column;
+    }
+
+    .intro {
+      width: 50%;
+      @media (max-width: @mobileBreakpoint) {
+        width: 100%;
+      }
+      p {
+        padding: @extraSmall;
+      }
+    }
+
+    .skills {
+      width: 50%;
+      @media (max-width: @mobileBreakpoint) {
+        width: 100%;
+      }
+
+      ul {
+        li {
+          border: @funkyBorder;
+          border-top: none;
+          padding: @small;
+        }
+        :first-child {
+          border-top: @funkyBorder;
+        }
+      }
+    }
+  }
+
+  .work-history {
+    .display-flex(column, normal, normal);
+    table {
+      th {
+        font-weight: bold;
+        text-align: left;
+      }
+
+      tr {
+        :first-child {
+          width: 10%;
+        }
+        :nth-child(2),
+        :nth-child(4) {
+          width: 20%;
+        }
+        :nth-child(3) {
+          width: 40%;
+        }
+      }
+
+      th,
+      td {
+        padding: @small;
+        border-top: @funkyBorder;
+      }
+
+      tbody {
+        tr:nth-child(2n + 1) {
+          background-color: @tableRowDarkColor;
+        }
+        tr:nth-child(2n) {
+          background-color: @tableRowLightColor;
+        }
+      }
+    }
+  }
+
+  footer {
+    .display-flex(row, space-evenly, normal);
+    @media (max-width: @mobileBreakpoint) {
+      .display-flex(column, space-evenly, center);
+    }
+    margin: @large auto;
+    padding: @medium;
+    background-color: @darkGrey;
+    color: @lightFontColor;
+
+    p {
+      padding: @small;
+    }
+  }
+}
